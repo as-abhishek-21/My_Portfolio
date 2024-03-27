@@ -4,8 +4,9 @@ const Header = () => {
   return (
     <header>
         <ThemeToggler />
+        Header
     </header>
   )
-}
+};
 
-export default Header
+export default Header;

@@ -292,6 +292,23 @@ a {
   word-break: break-word;
 }
 
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.contact-icon {
+  flex-shrink: 0;
+  color: var(--accent-1);
+}
+
+.contact-location {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
 .contact-list a {
   color: var(--text);
   border-bottom: 1px solid transparent;

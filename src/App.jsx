@@ -29,8 +29,8 @@ function Header() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <a className="logo" href="#top">
-        AS<span className="accent">.</span>
+      <a className="logo" href="#top" aria-label="Abhishek Singh — home">
+        <img src="/logo.svg" alt="AS logo" />
       </a>
       <nav className="nav">
         <a href="#work">Work</a>

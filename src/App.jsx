@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Mail, Phone, Linkedin, Github, MapPin } from 'lucide-react'
 import Card from './components/Card.jsx'
 import Marquee from './components/Marquee.jsx'
 import {
@@ -107,23 +108,29 @@ function Contact() {
       <h3 className="card-kicker">Contact</h3>
       <ul className="contact-list">
         <li>
+          <Mail size={16} className="contact-icon" aria-hidden="true" />
           <a href={`mailto:${profile.email}`}>{profile.email}</a>
         </li>
         <li>
+          <Phone size={16} className="contact-icon" aria-hidden="true" />
           <a href={`tel:${profile.phone.replace(/-/g, '')}`}>{profile.phone}</a>
         </li>
         <li>
+          <Linkedin size={16} className="contact-icon" aria-hidden="true" />
           <a href={profile.linkedin} target="_blank" rel="noreferrer">
-            LinkedIn ↗
+            LinkedIn
           </a>
         </li>
         <li>
+          <Github size={16} className="contact-icon" aria-hidden="true" />
           <a href={profile.github} target="_blank" rel="noreferrer">
-            GitHub ↗
+            GitHub
           </a>
         </li>
       </ul>
-      <p className="muted">📍 {profile.location}</p>
+      <p className="muted contact-location">
+        <MapPin size={14} className="contact-icon" aria-hidden="true" /> {profile.location}
+      </p>
     </Card>
   )
 }

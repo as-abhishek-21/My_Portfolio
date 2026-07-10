@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Mail, Phone, Linkedin, Github, MapPin } from 'lucide-react'
+import { Mail, Phone, Linkedin, Github, MapPin, Sparkles, ArrowUpRight, Send } from 'lucide-react'
 import Card from './components/Card.jsx'
 import Marquee from './components/Marquee.jsx'
 import {
@@ -39,7 +39,7 @@ function Header() {
         <a href="#skills">Skills</a>
       </nav>
       <a className="btn btn-primary" href={`mailto:${profile.email}`}>
-        Get in touch
+        <Send size={15} aria-hidden="true" /> Get in touch
       </a>
     </motion.header>
   )
@@ -62,10 +62,10 @@ function Hero() {
         </motion.p>
         <motion.div variants={fadeUp} className="hero-actions">
           <a className="btn btn-primary" href={`mailto:${profile.email}`}>
-            Contact me
+            <Mail size={16} aria-hidden="true" /> Contact me
           </a>
           <a className="btn btn-ghost" href="#projects">
-            View projects
+            View projects <ArrowUpRight size={16} aria-hidden="true" />
           </a>
         </motion.div>
       </motion.div>
@@ -82,8 +82,21 @@ function Photo() {
         className="photo-img"
         onError={(e) => e.currentTarget.parentElement.classList.add('photo-missing')}
       />
-      <div className="photo-fallback" aria-hidden="true">
-        <span className="gradient-text">AS</span>
+      <div className="photo-overlay">
+        <p className="photo-name">{profile.name}</p>
+        <p className="photo-role">{profile.role}</p>
+      </div>
+      <div className="photo-fallback">
+        <div className="avatar">
+          <div className="avatar-inner">
+            <span className="gradient-text">AS</span>
+          </div>
+        </div>
+        <p className="photo-name">{profile.name}</p>
+        <p className="photo-role">{profile.role}</p>
+        <span className="chip chip-accent photo-chip">
+          <MapPin size={12} aria-hidden="true" /> Bengaluru, India
+        </span>
       </div>
     </Card>
   )
@@ -107,6 +120,9 @@ function Stats() {
 function Focus() {
   return (
     <Card className="cell-focus" delay={0.15}>
+      <div className="focus-icon" aria-hidden="true">
+        <Sparkles size={20} />
+      </div>
       <h3 className="card-kicker">Currently focused on</h3>
       <p className="focus-text">{profile.focus}</p>
       <div className="chip-row">

@@ -73,6 +73,22 @@ function Hero() {
   )
 }
 
+function Photo() {
+  return (
+    <Card className="cell-photo" delay={0.05}>
+      <img
+        src="/profile.jpg"
+        alt="Portrait of Abhishek Singh"
+        className="photo-img"
+        onError={(e) => e.currentTarget.parentElement.classList.add('photo-missing')}
+      />
+      <div className="photo-fallback" aria-hidden="true">
+        <span className="gradient-text">AS</span>
+      </div>
+    </Card>
+  )
+}
+
 function Stats() {
   return (
     <Card className="cell-stats" delay={0.1}>
@@ -276,6 +292,7 @@ export default function App() {
       <main className="container">
         <div className="bento">
           <Hero />
+          <Photo />
           <Focus />
           <Contact />
           <Stats />

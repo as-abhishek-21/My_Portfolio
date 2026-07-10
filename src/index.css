@@ -175,6 +175,23 @@ a {
   background: var(--surface-hover);
 }
 
+.card-spotlight {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.35s;
+  background: radial-gradient(
+    440px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(139, 122, 255, 0.13),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.card:hover .card-spotlight {
+  opacity: 1;
+}
+
 .card-kicker {
   font-family: var(--font-display);
   font-size: 0.78rem;
@@ -221,21 +238,87 @@ a {
   display: none;
 }
 
+.photo-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 48px 22px 20px;
+  background: linear-gradient(to top, rgba(5, 5, 10, 0.92), transparent);
+}
+
+.photo-missing .photo-overlay {
+  display: none;
+}
+
+.photo-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.08rem;
+}
+
+.photo-role {
+  color: var(--text-muted);
+  font-size: 0.84rem;
+}
+
 .photo-fallback {
   display: none;
   position: absolute;
   inset: 0;
-  place-items: center;
-  font-family: var(--font-display);
-  font-size: 4.5rem;
-  font-weight: 800;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  padding: 24px;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139, 122, 255, 0.15), transparent),
-    var(--surface);
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.07) 1px, transparent 0) 0 0 / 22px 22px,
+    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(139, 122, 255, 0.2), transparent),
+    radial-gradient(ellipse 80% 45% at 50% 115%, rgba(79, 209, 255, 0.12), transparent);
 }
 
 .photo-missing .photo-fallback {
+  display: flex;
+}
+
+.avatar {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  margin-bottom: 14px;
+}
+
+.avatar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-1));
+  animation: spin 7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.avatar-inner {
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: #0b0b12;
   display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 2.7rem;
+  font-weight: 800;
+}
+
+.photo-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
 }
 
 .hero-orb,
@@ -298,6 +381,17 @@ a {
   margin-bottom: 20px;
 }
 
+.hero-title .gradient-text,
+.cta-title .gradient-text {
+  background-size: 220% 220%;
+  animation: gradient-move 7s ease infinite;
+}
+
+@keyframes gradient-move {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
 .hero-summary {
   color: var(--text-muted);
   max-width: 640px;
@@ -312,6 +406,18 @@ a {
 }
 
 /* ---------- Focus / Contact ---------- */
+.focus-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: var(--accent-1);
+  background: linear-gradient(135deg, rgba(139, 122, 255, 0.22), rgba(79, 209, 255, 0.14));
+  border: 1px solid rgba(139, 122, 255, 0.32);
+  margin-bottom: 16px;
+}
+
 .focus-text {
   font-family: var(--font-display);
   font-size: 1.05rem;
@@ -370,6 +476,10 @@ a {
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+
+.stat + .stat {
+  border-left: 1px solid var(--border);
 }
 
 .stat-value {
@@ -682,6 +792,10 @@ a {
 
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat + .stat {
+    border-left: none;
   }
 
   .nav {

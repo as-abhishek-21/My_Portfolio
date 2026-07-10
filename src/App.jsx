@@ -45,21 +45,44 @@ function Header() {
   )
 }
 
+function Squiggle() {
+  return (
+    <svg className="squiggle" viewBox="0 0 90 22" fill="none" aria-hidden="true">
+      <motion.path
+        d="M3 14 C 20 4, 34 20, 50 10 S 76 4, 87 12 M 60 17 C 68 13, 76 15, 82 18"
+        stroke="var(--accent-2)"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 1.1, delay: 1.2, ease: 'easeOut' }}
+      />
+    </svg>
+  )
+}
+
+const roleLines = ['FULL', 'STACK', 'DEVE-', 'LOPER']
+
 function Hero() {
   return (
-    <Card className="cell-hero" hover={false}>
-      <div className="hero-orb" />
-      <motion.div variants={stagger} initial="hidden" animate="visible" className="hero-content">
-        <motion.p variants={fadeUp} className="eyebrow">
-          <span className="pulse-dot" /> Available for new opportunities
+    <section className="hero-editorial">
+      <motion.div variants={stagger} initial="hidden" animate="visible" className="hero-left">
+        <motion.p variants={fadeUp} className="hero-eyebrow">
+          <span className="pulse-dot" /> Hi, I&apos;m
         </motion.p>
-        <motion.h1 variants={fadeUp} className="hero-title">
-          Hi, I&apos;m {profile.name.split(' ')[0]} —<br />
-          <span className="gradient-text">{profile.role}</span>
+        <motion.h1 variants={fadeUp} className="hero-name">
+          {profile.name.split(' ')[0]}
         </motion.h1>
-        <motion.p variants={fadeUp} className="hero-summary">
-          {profile.summary}
+        <motion.p variants={fadeUp} className="hero-tag">
+          I care about efficiency and precision.
         </motion.p>
+        <motion.div variants={fadeUp} className="hero-lines">
+          <p>
+            With business eyes and an agile mindset
+            <Squiggle />
+          </p>
+          <p>Based in Bengaluru, India</p>
+        </motion.div>
         <motion.div variants={fadeUp} className="hero-actions">
           <a className="btn btn-primary" href={`mailto:${profile.email}`}>
             <Mail size={16} aria-hidden="true" /> Contact me
@@ -69,36 +92,50 @@ function Hero() {
           </a>
         </motion.div>
       </motion.div>
-    </Card>
-  )
-}
 
-function Photo() {
-  return (
-    <Card className="cell-photo" delay={0.05}>
-      <img
-        src="/profile.jpg"
-        alt="Portrait of Abhishek Singh"
-        className="photo-img"
-        onError={(e) => e.currentTarget.parentElement.classList.add('photo-missing')}
-      />
-      <div className="photo-overlay">
-        <p className="photo-name">{profile.name}</p>
-        <p className="photo-role">{profile.role}</p>
-      </div>
-      <div className="photo-fallback">
-        <div className="avatar">
-          <div className="avatar-inner">
-            <span className="gradient-text">AS</span>
-          </div>
+      <div className="hero-right">
+        <div className="hero-orb" />
+        <motion.img
+          src="/profile.jpg"
+          alt="Portrait of Abhishek Singh"
+          className="hero-photo"
+          onError={(e) => e.currentTarget.closest('.hero-right').classList.add('photo-missing')}
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+        />
+        <div className="hero-role" aria-label={profile.role}>
+          {roleLines.map((line, i) => (
+            <motion.span
+              key={line}
+              className={i === roleLines.length - 1 ? 'gradient-text' : ''}
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {line}
+            </motion.span>
+          ))}
         </div>
-        <p className="photo-name">{profile.name}</p>
-        <p className="photo-role">{profile.role}</p>
-        <span className="chip chip-accent photo-chip">
-          <MapPin size={12} aria-hidden="true" /> Bengaluru, India
-        </span>
+        <svg className="hero-arc" viewBox="0 0 220 420" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="arcGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="var(--accent-1)" />
+              <stop offset="100%" stopColor="var(--accent-2)" />
+            </linearGradient>
+          </defs>
+          <motion.path
+            d="M20 400 C 150 340, 200 220, 190 120 C 184 70, 160 30, 120 10"
+            stroke="url(#arcGrad)"
+            strokeWidth="3"
+            strokeLinecap="round"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 1.4, delay: 0.8, ease: 'easeInOut' }}
+          />
+        </svg>
       </div>
-    </Card>
+    </section>
   )
 }
 
@@ -306,9 +343,8 @@ export default function App() {
     <div className="page" id="top">
       <Header />
       <main className="container">
+        <Hero />
         <div className="bento">
-          <Hero />
-          <Photo />
           <Focus />
           <Contact />
           <Stats />

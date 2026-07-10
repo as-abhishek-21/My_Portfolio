@@ -78,7 +78,7 @@ function Hero() {
         </motion.p>
         <motion.div variants={fadeUp} className="hero-lines">
           <p>
-            With business eyes and an agile mindset
+            From API architecture to pixel-perfect UI
             <Squiggle />
           </p>
           <p>Based in Bengaluru, India</p>

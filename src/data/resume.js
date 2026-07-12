@@ -8,7 +8,7 @@ export const profile = {
   github: 'https://github.com/as-abhishek-21',
   summary:
     'Results-driven Full Stack JavaScript Developer with 2.5+ years of experience architecting scalable web applications and automation-driven workflows. Proficient in TypeScript, Node.js, React, and Next.js — delivering end-to-end solutions from database schema design and API development to front-end optimization and cloud deployment.',
-  focus: 'Building reliable, AI-powered automation agents for enterprise customers.',
+  focus: 'Building reliable, token-efficient AI automation agents for enterprise customers.',
 }
 
 export const stats = [
@@ -37,7 +37,7 @@ export const skills = [
   },
   {
     category: 'AI & Tools',
-    items: ['Claude AI (Anthropic)', 'n8n', 'Prompt Engineering', 'LLM Integration', 'Copilot', 'Cursor', 'Git/GitHub', 'Firebase'],
+    items: ['Claude AI (Anthropic)', 'n8n', 'Prompt Engineering', 'Token Optimization', 'LLM Integration', 'Copilot', 'Cursor', 'Git/GitHub', 'Firebase'],
   },
   {
     category: 'Cloud & DevOps',
@@ -77,7 +77,7 @@ export const projects = [
     title: 'Event Agent — AI Lead Generation',
     tag: 'AI · Automation',
     description:
-      'Autonomous agent that turns any event website into a lead list: Puppeteer scrapes the page, an LLM extracts exhibitor names, a search API enriches each company with website & LinkedIn, and live progress streams over Server-Sent Events into an auto-created Google Sheet.',
+      'Autonomous agent that turns any event website into a lead list: Puppeteer scrapes the page, an LLM extracts exhibitor names from token-trimmed page text to keep API costs low, a search API enriches each company with website & LinkedIn, and live progress streams over Server-Sent Events into an auto-created Google Sheet.',
     tech: ['Node.js', 'Puppeteer', 'LLM', 'Google Sheets API', 'React'],
     featured: true,
   },

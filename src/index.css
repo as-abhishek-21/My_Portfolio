@@ -687,6 +687,18 @@ a {
   margin-bottom: 10px;
 }
 
+.project-title-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  transition: color 0.2s;
+}
+
+.project-title-link:hover {
+  color: var(--accent-2);
+}
+
 .project-desc {
   color: var(--text-muted);
   font-size: 0.9rem;

@@ -166,6 +166,7 @@ function Focus() {
         <span className="chip chip-accent">Claude AI</span>
         <span className="chip chip-accent">Automation</span>
         <span className="chip chip-accent">Agents</span>
+        <span className="chip chip-accent">n8n</span>
       </div>
     </Card>
   )

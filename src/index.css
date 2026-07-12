@@ -231,7 +231,7 @@ a {
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(3.6rem, 9.5vw, 8rem);
+  font-size: clamp(3.2rem, 7.8vw, 6.6rem);
   font-weight: 800;
   line-height: 0.98;
   letter-spacing: -3px;
@@ -291,12 +291,12 @@ a {
   right: 0;
   bottom: 0;
   height: 100%;
-  width: 74%;
+  width: 56%;
   object-fit: cover;
   object-position: center 18%;
   border-radius: 26px 26px 0 0;
-  -webkit-mask-image: linear-gradient(100deg, transparent 2%, #000 38%);
-  mask-image: linear-gradient(100deg, transparent 2%, #000 38%);
+  -webkit-mask-image: linear-gradient(100deg, transparent 0%, #000 22%);
+  mask-image: linear-gradient(100deg, transparent 0%, #000 22%);
   z-index: 1;
 }
 
@@ -312,24 +312,20 @@ a {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 62%;
+  width: 41%;
   z-index: 2;
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 4.8vw, 4.3rem);
+  font-size: clamp(2.2rem, 3.6vw, 3.6rem);
   font-weight: 800;
-  line-height: 1.02;
+  line-height: 1.04;
   letter-spacing: 3px;
   pointer-events: none;
 }
 
-.hero-role span {
-  text-shadow: 0 4px 30px rgba(5, 5, 12, 0.65);
-}
-
-.hero-role span:nth-child(1) { margin-right: 34px; }
+.hero-role span:nth-child(1) { margin-right: 20px; }
 .hero-role span:nth-child(2) { margin-right: 0; }
-.hero-role span:nth-child(3) { margin-right: 56px; }
-.hero-role span:nth-child(4) { margin-right: 14px; }
+.hero-role span:nth-child(3) { margin-right: 36px; }
+.hero-role span:nth-child(4) { margin-right: 6px; }
 
 .photo-missing .hero-role {
   width: 100%;
@@ -792,7 +788,7 @@ a {
   }
 
   .hero-photo {
-    width: 68%;
+    width: 54%;
   }
 
   .cell-stats { grid-column: span 2; }
@@ -840,17 +836,28 @@ a {
   }
 
   .hero-right {
-    height: 360px;
+    height: 400px;
   }
 
   .hero-photo {
-    width: 82%;
+    height: 62%;
+    width: 86%;
   }
 
   .hero-role {
-    font-size: 2.1rem;
-    width: 70%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0 14px;
+    font-size: 1.9rem;
   }
+
+  .hero-role span { margin-right: 0 !important; }
 
   .hero-arc {
     width: 130px;

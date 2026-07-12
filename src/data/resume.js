@@ -80,7 +80,6 @@ export const projects = [
       'Autonomous agent that turns any event website into a lead list: Puppeteer scrapes the page, an LLM extracts exhibitor names, a search API enriches each company with website & LinkedIn, and live progress streams over Server-Sent Events into an auto-created Google Sheet.',
     tech: ['Node.js', 'Puppeteer', 'LLM', 'Google Sheets API', 'React'],
     featured: true,
-    link: 'https://github.com/as-abhishek-21/event-agent',
   },
   {
     title: 'WhatsApp Order Bidding Microservice',

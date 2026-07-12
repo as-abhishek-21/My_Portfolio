@@ -86,7 +86,7 @@ export const projects = [
     title: 'WhatsApp Order Bidding Microservice',
     tag: 'Microservices · Automation',
     description:
-      'Event-driven order orchestration running dealer bidding over WhatsApp (360dialog): Cloud Tasks drives 15-minute bid windows and 10-minute final-decision timers, Pub/Sub fans out events, and NestJS with Postgres tracks bids, admin counter-offers, and automatic failover to the next dealer.',
+      'Event-driven order orchestration running dealer bidding over meta WhatsApp: Cloud Tasks drives 15-minute bid windows and 10-minute final-decision timers, Pub/Sub fans out events, and NestJS with Postgres tracks bids, admin counter-offers, and automatic failover to the next dealer.',
     tech: ['NestJS', 'Cloud Tasks', 'Pub/Sub', 'PostgreSQL', 'WhatsApp API'],
     featured: true,
   },

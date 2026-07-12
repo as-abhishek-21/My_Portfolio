@@ -49,7 +49,7 @@ export const experience = [
   {
     company: 'Einsteinforce Innovations Pvt Ltd',
     role: 'Consultant — Full Stack Developer',
-    period: 'Apr 2025 — Present',
+    period: 'Apr 2025 — Apr 2026',
     highlights: [
       'Architected scalable TypeScript/Node.js microservices with 150+ RESTful APIs, cutting average API response time by 30%.',
       'Engineered robust role-based authentication & authorization, eliminating unauthorized access incidents platform-wide.',

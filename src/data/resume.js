@@ -37,7 +37,7 @@ export const skills = [
   },
   {
     category: 'AI & Tools',
-    items: ['Claude AI (Anthropic)', 'Prompt Engineering', 'LLM Integration', 'Copilot', 'Cursor', 'Git/GitHub', 'Firebase'],
+    items: ['Claude AI (Anthropic)', 'n8n', 'Prompt Engineering', 'LLM Integration', 'Copilot', 'Cursor', 'Git/GitHub', 'Firebase'],
   },
   {
     category: 'Cloud & DevOps',
@@ -138,6 +138,6 @@ export const certifications = [
 
 export const marqueeTech = [
   'TypeScript', 'React', 'Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Prisma',
-  'Tailwind CSS', 'Claude AI', 'AWS', 'Docker', 'Redux', 'MongoDB', 'WebSockets',
+  'Tailwind CSS', 'Claude AI', 'n8n', 'AWS', 'Docker', 'Redux', 'MongoDB', 'WebSockets',
   'Vite', 'Framer Motion',
 ]

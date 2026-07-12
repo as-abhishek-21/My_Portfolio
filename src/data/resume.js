@@ -74,6 +74,23 @@ export const experience = [
 
 export const projects = [
   {
+    title: 'Event Agent — AI Lead Generation',
+    tag: 'AI · Automation',
+    description:
+      'Autonomous agent that turns any event website into a lead list: Puppeteer scrapes the page, an LLM extracts exhibitor names, a search API enriches each company with website & LinkedIn, and live progress streams over Server-Sent Events into an auto-created Google Sheet.',
+    tech: ['Node.js', 'Puppeteer', 'LLM', 'Google Sheets API', 'React'],
+    featured: true,
+    link: 'https://github.com/as-abhishek-21/event-agent',
+  },
+  {
+    title: 'WhatsApp Order Bidding Microservice',
+    tag: 'Microservices · Automation',
+    description:
+      'Event-driven order orchestration running dealer bidding over WhatsApp (360dialog): Cloud Tasks drives 15-minute bid windows and 10-minute final-decision timers, Pub/Sub fans out events, and NestJS with Postgres tracks bids, admin counter-offers, and automatic failover to the next dealer.',
+    tech: ['NestJS', 'Cloud Tasks', 'Pub/Sub', 'PostgreSQL', 'WhatsApp API'],
+    featured: true,
+  },
+  {
     title: 'AI Parenting Mobile App',
     tag: 'AI · Mobile',
     description:

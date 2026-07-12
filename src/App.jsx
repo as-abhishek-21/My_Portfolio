@@ -274,7 +274,18 @@ function Projects() {
             delay={i * 0.06}
           >
             <span className="project-tag">{project.tag}</span>
-            <h3 className="project-title">{project.title}</h3>
+            {project.link ? (
+              <a
+                className="project-title project-title-link"
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {project.title} <ArrowUpRight size={17} aria-hidden="true" />
+              </a>
+            ) : (
+              <h3 className="project-title">{project.title}</h3>
+            )}
             <p className="project-desc">{project.description}</p>
             <div className="chip-row project-tech">
               {project.tech.map((t) => (

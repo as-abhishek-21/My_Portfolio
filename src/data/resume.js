@@ -25,11 +25,11 @@ export const skills = [
   },
   {
     category: 'Backend',
-    items: ['Node.js', 'Express.js', 'Nest.js', 'REST APIs', 'Microservices', 'Prisma', 'Sequelize', 'WebSockets', 'Stripe', 'Razorpay', 'Swagger'],
+    items: ['Node.js', 'Express.js', 'Nest.js', 'Next.js', 'REST APIs', 'Microservices', 'Prisma', 'Sequelize', 'WebSockets', 'Stripe', 'Razorpay', 'Swagger'],
   },
   {
     category: 'Frontend',
-    items: ['React.js', 'Next.js', 'Redux', 'Zustand', 'Tailwind CSS', 'MUI', 'Shadcn/ui', 'Chart.js', 'Expo'],
+    items: ['React.js', 'Next.js', 'Redux', 'Zustand', 'Tailwind CSS', 'MUI', 'Shadcn/ui', 'Chart.js', 'Expo', 'React native'],
   },
   {
     category: 'Databases',

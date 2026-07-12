@@ -81,7 +81,7 @@ function Hero() {
             From API architecture to pixel-perfect UI
             <Squiggle />
           </p>
-          <p>Based in Bengaluru, India</p>
+          <p>Crafting scalable, AI-powered web apps with TypeScript, React &amp; Node.js</p>
         </motion.div>
         <motion.div variants={fadeUp} className="hero-actions">
           <a className="btn btn-primary" href={`mailto:${profile.email}`}>

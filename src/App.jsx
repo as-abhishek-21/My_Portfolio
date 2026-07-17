@@ -145,11 +145,14 @@ function Counter({ value }) {
   const suffix = value.replace(/[\d.]/g, '')
   const decimals = value.includes('.') ? 1 : 0
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-30px' })
+  const inView = useInView(ref, { once: false, margin: '-30px' })
   const [display, setDisplay] = useState('0')
 
   useEffect(() => {
-    if (!inView) return
+    if (!inView) {
+      setDisplay('0')
+      return
+    }
     const controls = animate(0, target, {
       duration: 1.6,
       ease: [0.22, 1, 0.36, 1],
@@ -249,7 +252,7 @@ function Skills() {
                   key={item}
                   initial={{ opacity: 0, y: 10, scale: 0.9 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true, margin: '-20px' }}
+                  viewport={{ once: false, margin: '-20px' }}
                   transition={{ duration: 0.35, delay: i * 0.035, ease: 'easeOut' }}
                 >
                   {item}
@@ -274,7 +277,7 @@ function Experience() {
             key={job.company}
             initial={{ opacity: 0, x: -22 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
+            viewport={{ once: false, margin: '-40px' }}
             transition={{ duration: 0.55, delay: 0.15 + jobIndex * 0.18, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="timeline-marker" />
@@ -303,7 +306,7 @@ function AnimatedTitle({ text }) {
       className="section-title"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       variants={{ visible: { transition: { staggerChildren: 0.045 } } }}
       aria-label={text}
     >

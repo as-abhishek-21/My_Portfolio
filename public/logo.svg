@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
     <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-      <path d="M20 0H0v20" fill="none" stroke="#2ee6f0" stroke-width="2.5"/>
+      <path d="M20 0H0v20" fill="none" stroke="#978f66" stroke-width="2.5"/>
     </pattern>
   </defs>
 
@@ -12,15 +12,15 @@
     <rect x="215" y="215" width="110" height="90" fill="url(#grid)" transform="rotate(10 270 260)"/>
   </g>
 
-  <!-- magenta shards -->
-  <g fill="#f018e0">
+  <!-- caramel shards -->
+  <g fill="#995f2f">
     <polygon points="380,180 470,60 500,80 415,195" />
     <polygon points="318,205 345,120 372,132 342,215" />
     <polygon points="30,430 150,355 165,382 48,455" />
   </g>
 
-  <!-- cyan shards -->
-  <g fill="#28e6f2">
+  <!-- cream shards -->
+  <g fill="#e4d6a9">
     <polygon points="352,95 398,42 400,140" />
     <polygon points="292,238 336,214 330,262" />
     <polygon points="358,278 448,222 440,250" />
@@ -32,9 +32,9 @@
 
   <!-- letters: shadow layer then face -->
   <g font-family="Georgia, 'Times New Roman', serif" font-weight="700" text-anchor="middle">
-    <text x="176" y="330" font-size="330" fill="#0b0e12" opacity="0.9" transform="translate(14 14)">A</text>
-    <text x="352" y="452" font-size="330" fill="#0b0e12" opacity="0.9" transform="translate(14 14)">S</text>
-    <text x="176" y="330" font-size="330" fill="#ffffff" stroke="#12161c" stroke-width="16" paint-order="stroke">A</text>
-    <text x="352" y="452" font-size="330" fill="#ffffff" stroke="#12161c" stroke-width="16" paint-order="stroke">S</text>
+    <text x="176" y="330" font-size="330" fill="#170e06" opacity="0.9" transform="translate(14 14)">A</text>
+    <text x="352" y="452" font-size="330" fill="#170e06" opacity="0.9" transform="translate(14 14)">S</text>
+    <text x="176" y="330" font-size="330" fill="#f1e8d2" stroke="#1d130a" stroke-width="16" paint-order="stroke">A</text>
+    <text x="352" y="452" font-size="330" fill="#f1e8d2" stroke="#1d130a" stroke-width="16" paint-order="stroke">S</text>
   </g>
 </svg>

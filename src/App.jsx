@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, Linkedin, Github, MapPin, Sparkles, ArrowUpRight, Send } from 'lucide-react'
 import Card from './components/Card.jsx'
@@ -329,22 +330,72 @@ function Certifications() {
 }
 
 function BigCTA() {
+  const [form, setForm] = useState({ name: '', email: '', message: '' })
+
+  const update = (field) => (e) => setForm({ ...form, [field]: e.target.value })
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const subject = encodeURIComponent(`Portfolio inquiry from ${form.name}`)
+    const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`)
+    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`
+  }
+
   return (
     <Card className="cell-cta" hover={false}>
       <div className="cta-orb" />
-      <h2 className="cta-title">
-        Let&apos;s build something <span className="gradient-text">great together</span>
-      </h2>
-      <p className="cta-sub">
-        Open to full-time roles and freelance projects — especially AI-powered products.
-      </p>
-      <div className="hero-actions">
-        <a className="btn btn-primary" href={`mailto:${profile.email}`}>
-          {profile.email}
-        </a>
-        <a className="btn btn-ghost" href={profile.linkedin} target="_blank" rel="noreferrer">
-          Connect on LinkedIn ↗
-        </a>
+      <div className="cta-grid">
+        <form className="cta-form" onSubmit={handleSubmit}>
+          <div className="form-field">
+            <label htmlFor="cta-name">Name</label>
+            <input
+              id="cta-name"
+              type="text"
+              placeholder="Your name"
+              value={form.name}
+              onChange={update('name')}
+              required
+            />
+          </div>
+          <div className="form-field">
+            <label htmlFor="cta-email">Email</label>
+            <input
+              id="cta-email"
+              type="email"
+              placeholder="you@example.com"
+              value={form.email}
+              onChange={update('email')}
+              required
+            />
+          </div>
+          <div className="form-field">
+            <label htmlFor="cta-message">Message</label>
+            <textarea
+              id="cta-message"
+              rows={5}
+              placeholder="Tell me about your project…"
+              value={form.message}
+              onChange={update('message')}
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-primary cta-submit">
+            <Send size={16} aria-hidden="true" /> Send message
+          </button>
+        </form>
+
+        <div className="cta-info">
+          <h2 className="cta-title">
+            Let&apos;s build something <span className="gradient-text">great together</span>
+          </h2>
+          <p className="cta-sub">
+            Open to full-time roles and freelance projects — especially AI-powered products.
+            Drop a message and I&apos;ll get back to you within a day.
+          </p>
+          <a className="btn btn-ghost" href={profile.linkedin} target="_blank" rel="noreferrer">
+            <Linkedin size={16} aria-hidden="true" /> Connect on LinkedIn
+          </a>
+        </div>
       </div>
     </Card>
   )

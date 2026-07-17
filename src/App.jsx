@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { animate, motion, useInView } from 'framer-motion'
 import { Mail, Phone, Linkedin, Github, MapPin, Sparkles, ArrowUpRight, Send } from 'lucide-react'
 import Card from './components/Card.jsx'
 import Marquee from './components/Marquee.jsx'
@@ -140,13 +140,41 @@ function Hero() {
   )
 }
 
+function Counter({ value }) {
+  const target = parseFloat(value)
+  const suffix = value.replace(/[\d.]/g, '')
+  const decimals = value.includes('.') ? 1 : 0
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-30px' })
+  const [display, setDisplay] = useState('0')
+
+  useEffect(() => {
+    if (!inView) return
+    const controls = animate(0, target, {
+      duration: 1.6,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: (v) => setDisplay(v.toFixed(decimals)),
+    })
+    return () => controls.stop()
+  }, [inView, target, decimals])
+
+  return (
+    <span ref={ref}>
+      {display}
+      {suffix}
+    </span>
+  )
+}
+
 function Stats() {
   return (
     <Card className="cell-stats" delay={0.1}>
       <div className="stats-grid">
         {stats.map((s) => (
           <div className="stat" key={s.label}>
-            <span className="stat-value gradient-text">{s.value}</span>
+            <span className="stat-value gradient-text">
+              <Counter value={s.value} />
+            </span>
             <span className="stat-label">{s.label}</span>
           </div>
         ))}
@@ -215,10 +243,17 @@ function Skills() {
           <div className="skill-group" key={group.category}>
             <h4>{group.category}</h4>
             <div className="chip-row">
-              {group.items.map((item) => (
-                <span className="chip" key={item}>
+              {group.items.map((item, i) => (
+                <motion.span
+                  className="chip"
+                  key={item}
+                  initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: '-20px' }}
+                  transition={{ duration: 0.35, delay: i * 0.035, ease: 'easeOut' }}
+                >
                   {item}
-                </span>
+                </motion.span>
               ))}
             </div>
           </div>
@@ -233,8 +268,15 @@ function Experience() {
     <Card className="cell-experience" delay={0.15} id="work">
       <h3 className="card-kicker">Work Experience</h3>
       <div className="timeline">
-        {experience.map((job) => (
-          <div className="timeline-item" key={job.company}>
+        {experience.map((job, jobIndex) => (
+          <motion.div
+            className="timeline-item"
+            key={job.company}
+            initial={{ opacity: 0, x: -22 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.55, delay: 0.15 + jobIndex * 0.18, ease: [0.22, 1, 0.36, 1] }}
+          >
             <div className="timeline-marker" />
             <div className="timeline-body">
               <div className="timeline-head">
@@ -248,25 +290,49 @@ function Experience() {
                 ))}
               </ul>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </Card>
   )
 }
 
+function AnimatedTitle({ text }) {
+  return (
+    <motion.h2
+      className="section-title"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={{ visible: { transition: { staggerChildren: 0.045 } } }}
+      aria-label={text}
+    >
+      {text.split('').map((char, i) => (
+        <motion.span
+          key={i}
+          className="title-char"
+          aria-hidden="true"
+          variants={{
+            hidden: { opacity: 0, y: '0.7em', rotate: 6 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              rotate: 0,
+              transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+            },
+          }}
+        >
+          {char === ' ' ? ' ' : char}
+        </motion.span>
+      ))}
+    </motion.h2>
+  )
+}
+
 function Projects() {
   return (
     <section className="projects-section" id="projects">
-      <motion.h2
-        className="section-title"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        Key Projects
-      </motion.h2>
+      <AnimatedTitle text="Key Projects" />
       <div className="projects-grid">
         {projects.map((project, i) => (
           <Card

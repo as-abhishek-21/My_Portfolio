@@ -37,7 +37,7 @@ export default function Card({ children, className = '', delay = 0, hover = true
       variants={variants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-40px' }}
+      viewport={{ once: false, margin: '-40px' }}
       custom={delay}
       whileHover={hover ? { y: -5, transition: { duration: 0.25 } } : undefined}
       style={hover ? { rotateX, rotateY, transformPerspective: 900 } : undefined}

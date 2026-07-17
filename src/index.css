@@ -738,8 +738,7 @@ a {
 
 /* ---------- CTA ---------- */
 .cell-cta {
-  text-align: center;
-  padding: 64px 32px;
+  padding: 56px 48px;
 }
 
 .cta-orb {
@@ -749,27 +748,80 @@ a {
   right: auto;
 }
 
-.cta-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 800;
-  letter-spacing: -1px;
-  margin-bottom: 12px;
+.cta-grid {
   position: relative;
   z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 14px;
 }
 
 .cta-sub {
   color: var(--text-muted);
   margin-bottom: 28px;
-  position: relative;
-  z-index: 1;
 }
 
-.cell-cta .hero-actions {
-  justify-content: center;
-  position: relative;
-  z-index: 1;
+.cta-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-field label {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+}
+
+.form-field input,
+.form-field textarea {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 13px 16px;
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: rgba(154, 154, 173, 0.55);
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--accent-1);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 3px rgba(139, 122, 255, 0.18);
+}
+
+.cta-submit {
+  align-self: flex-start;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
 }
 
 /* ---------- Footer ---------- */
@@ -814,6 +866,15 @@ a {
 
   .stat + .stat {
     border-left: none;
+  }
+
+  .cta-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .cta-info {
+    order: -1;
   }
 
   .nav {

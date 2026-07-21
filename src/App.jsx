@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { animate, motion, useInView } from 'framer-motion'
+import { Analytics } from '@vercel/analytics/react'
+import { track } from '@vercel/analytics'
 import { Mail, Phone, Linkedin, Github, MapPin, Sparkles, ArrowUpRight, Send } from 'lucide-react'
 import Card from './components/Card.jsx'
 import Marquee from './components/Marquee.jsx'
@@ -39,7 +41,11 @@ function Header() {
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
       </nav>
-      <a className="btn btn-primary" href={`mailto:${profile.email}`}>
+      <a
+        className="btn btn-primary"
+        href={`mailto:${profile.email}`}
+        onClick={() => track('email_click', { source: 'header' })}
+      >
         <Send size={15} aria-hidden="true" /> Get in touch
       </a>
     </motion.header>
@@ -85,10 +91,18 @@ function Hero() {
           <p>Crafting scalable, AI-powered web apps with TypeScript, React &amp; Node.js</p>
         </motion.div>
         <motion.div variants={fadeUp} className="hero-actions">
-          <a className="btn btn-primary" href={`mailto:${profile.email}`}>
+          <a
+            className="btn btn-primary"
+            href={`mailto:${profile.email}`}
+            onClick={() => track('email_click', { source: 'hero' })}
+          >
             <Mail size={16} aria-hidden="true" /> Contact me
           </a>
-          <a className="btn btn-ghost" href="#projects">
+          <a
+            className="btn btn-ghost"
+            href="#projects"
+            onClick={() => track('view_projects_click')}
+          >
             View projects <ArrowUpRight size={16} aria-hidden="true" />
           </a>
         </motion.div>
@@ -211,21 +225,35 @@ function Contact() {
       <ul className="contact-list">
         <li>
           <Mail size={16} className="contact-icon" aria-hidden="true" />
-          <a href={`mailto:${profile.email}`}>{profile.email}</a>
+          <a href={`mailto:${profile.email}`} onClick={() => track('email_click', { source: 'contact_card' })}>
+            {profile.email}
+          </a>
         </li>
         <li>
           <Phone size={16} className="contact-icon" aria-hidden="true" />
-          <a href={`tel:${profile.phone.replace(/-/g, '')}`}>{profile.phone}</a>
+          <a href={`tel:${profile.phone.replace(/-/g, '')}`} onClick={() => track('phone_click')}>
+            {profile.phone}
+          </a>
         </li>
         <li>
           <Linkedin size={16} className="contact-icon" aria-hidden="true" />
-          <a href={profile.linkedin} target="_blank" rel="noreferrer">
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => track('linkedin_click', { source: 'contact_card' })}
+          >
             LinkedIn
           </a>
         </li>
         <li>
           <Github size={16} className="contact-icon" aria-hidden="true" />
-          <a href={profile.github} target="_blank" rel="noreferrer">
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => track('github_click', { source: 'contact_card' })}
+          >
             GitHub
           </a>
         </li>
@@ -405,6 +433,7 @@ function BigCTA() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    track('contact_submit')
     const subject = encodeURIComponent(`Portfolio inquiry from ${form.name}`)
     const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`)
     window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`
@@ -461,7 +490,13 @@ function BigCTA() {
             Open to full-time roles and freelance projects — especially AI-powered products.
             Drop a message and I&apos;ll get back to you within a day.
           </p>
-          <a className="btn btn-ghost" href={profile.linkedin} target="_blank" rel="noreferrer">
+          <a
+            className="btn btn-ghost"
+            href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => track('linkedin_click', { source: 'cta' })}
+          >
             <Linkedin size={16} aria-hidden="true" /> Connect on LinkedIn
           </a>
         </div>
@@ -496,6 +531,7 @@ export default function App() {
           © {new Date().getFullYear()} {profile.name} · Built with React, Vite &amp; Framer Motion
         </p>
       </footer>
+      <Analytics />
     </div>
   )
 }

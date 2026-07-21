@@ -37,9 +37,15 @@ function Header() {
         <img src="/logo.svg" alt="AS logo" />
       </a>
       <nav className="nav">
-        <a href="#work">Work</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
+        <a href="#work" onClick={() => track('nav_click', { section: 'work' })}>
+          Work
+        </a>
+        <a href="#projects" onClick={() => track('nav_click', { section: 'projects' })}>
+          Projects
+        </a>
+        <a href="#skills" onClick={() => track('nav_click', { section: 'skills' })}>
+          Skills
+        </a>
       </nav>
       <a
         className="btn btn-primary"
@@ -276,14 +282,12 @@ function Skills() {
             <div className="chip-row">
               {group.items.map((item, i) => (
                 <motion.span
-                  className="chip chip-interactive"
+                  className="chip"
                   key={item}
-                  onClick={() => track('skill_click', { skill: item, category: group.category })}
                   initial={{ opacity: 0, y: 10, scale: 0.9 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: false, margin: '-20px' }}
                   transition={{ duration: 0.35, delay: i * 0.035, ease: 'easeOut' }}
-                  whileTap={{ scale: 0.92 }}
                 >
                   {item}
                 </motion.span>

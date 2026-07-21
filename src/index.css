@@ -526,6 +526,17 @@ a {
   border-color: var(--border-hover);
 }
 
+.chip-interactive {
+  cursor: pointer;
+  user-select: none;
+}
+
+.chip-interactive:hover {
+  color: var(--text);
+  border-color: var(--border-hover);
+  background: rgba(153, 95, 47, 0.1);
+}
+
 .chip-accent {
   color: var(--accent-1);
   border-color: rgba(153, 95, 47, 0.35);

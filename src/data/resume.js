@@ -2,7 +2,7 @@ export const profile = {
   name: 'Abhishek Singh',
   role: 'Full Stack JavaScript Developer',
   location: 'Bengaluru, Karnataka, India',
-  email: 'abhisheksingh.as2321@gmail.com',
+  email: 'as.abhishek.singh.21.09@gmail.com',
   phone: '+91-9535502966',
   linkedin: 'https://www.linkedin.com/in/abhishek-singh',
   github: 'https://github.com/as-abhishek-21',

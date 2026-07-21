@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { animate, motion, useInView } from 'framer-motion'
 import { Analytics } from '@vercel/analytics/react'
 import { track } from '@vercel/analytics'
-import { Mail, Phone, Linkedin, Github, MapPin, Sparkles, ArrowUpRight, Send } from 'lucide-react'
+import { Mail, Phone, Linkedin, Github, MapPin, Sparkles, ArrowUpRight, Send, Download } from 'lucide-react'
 import Card from './components/Card.jsx'
 import Marquee from './components/Marquee.jsx'
 import {
@@ -110,6 +110,14 @@ function Hero() {
             onClick={() => track('view_projects_click')}
           >
             View projects <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
+          <a
+            className="btn btn-ghost"
+            href="/resume.pdf"
+            download="Abhishek_Singh_Resume.pdf"
+            onClick={() => track('resume_download')}
+          >
+            <Download size={16} aria-hidden="true" /> Resume
           </a>
         </motion.div>
       </motion.div>

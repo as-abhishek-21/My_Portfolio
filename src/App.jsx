@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { animate, motion, useInView } from 'framer-motion'
 import { Analytics } from '@vercel/analytics/react'
-import { track } from '@vercel/analytics'
+import { track, initGA } from './lib/analytics.js'
 import { Mail, Phone, Linkedin, Github, MapPin, Sparkles, ArrowUpRight, Send, Download } from 'lucide-react'
 import Card from './components/Card.jsx'
 import Marquee from './components/Marquee.jsx'
@@ -520,6 +520,10 @@ function BigCTA() {
 }
 
 export default function App() {
+  useEffect(() => {
+    initGA()
+  }, [])
+
   return (
     <div className="page" id="top">
       <Header />

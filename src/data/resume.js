@@ -4,7 +4,7 @@ export const profile = {
   location: 'Bengaluru, Karnataka, India',
   email: 'as.abhishek.singh.21.09@gmail.com',
   phone: '+91-9535502966',
-  linkedin: 'https://www.linkedin.com/in/abhishek-singh',
+  linkedin: 'https://www.linkedin.com/in/abhishek-singh-87544b276/',
   github: 'https://github.com/as-abhishek-21',
   summary:
     'Results-driven Full Stack JavaScript Developer with 2.5+ years of experience architecting scalable web applications and automation-driven workflows. Proficient in TypeScript, Node.js, React, and Next.js — delivering end-to-end solutions from database schema design and API development to front-end optimization and cloud deployment.',

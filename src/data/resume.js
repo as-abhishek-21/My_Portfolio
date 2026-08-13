@@ -2,7 +2,7 @@ export const profile = {
   name: 'Abhishek Singh',
   role: 'Full Stack JavaScript Developer',
   location: 'Bengaluru, Karnataka, India',
-  email: 'as.abhishek.singh.21.09@gmail.com',
+  email: 'abhisheksingh.as2321@gmail.com',
   phone: '+91-9535502966',
   linkedin: 'https://www.linkedin.com/in/abhishek-singh-87544b276/',
   github: 'https://github.com/as-abhishek-21',
@@ -150,6 +150,27 @@ export const certifications = [
   'JavaScript Ultimate Guide',
   'The Complete ReactJS Course — Basics to Advanced',
   'Frontend Developer (React)',
+]
+
+export const testimonials = [
+  {
+    name: 'Bhupika Singh',
+    role: 'AI Workflow Enablement & Automation',
+    content: 'Abhishek’s technical expertise and fast execution were instrumental in building our AI agent. He understood our needs intuitively and delivered results beyond our expectations. Highly recommended!',
+    linkedIn: 'https://www.linkedin.com/in/bhupikasingh/',
+  },
+  {
+    name: 'Sachin LS',
+    role: 'Driving Business Transformation',
+    content: 'The diligent way Abhishek works is great. His zeal for new work and the way he accepts new challenges is very appreciated. Keep it up always!',
+    linkedIn: 'https://www.linkedin.com/in/sachin-ls/',
+  },
+  {
+    name: 'Mayank',
+    role: '',
+    content: 'Abhishek was recognized for taking full accountability for his tasks and consistently going the extra mile to complete them.',
+    linkedIn: '',
+  },
 ]
 
 export const marqueeTech = [

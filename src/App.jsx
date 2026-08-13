@@ -13,6 +13,7 @@ import {
   projects,
   education,
   certifications,
+  testimonials,
 } from './data/resume.js'
 
 const stagger = {
@@ -46,10 +47,15 @@ function Header() {
         <a href="#skills" onClick={() => track('nav_click', { section: 'skills' })}>
           Skills
         </a>
+        <a href="#testimonials" onClick={() => track('nav_click', { section: 'testimonials' })}>
+          Testimonials
+        </a>
       </nav>
       <a
         className="btn btn-primary"
         href={`mailto:${profile.email}`}
+        target="_blank"
+        rel="noreferrer"
         onClick={() => track('email_click', { source: 'header' })}
       >
         <Send size={15} aria-hidden="true" /> Get in touch
@@ -77,6 +83,7 @@ function Squiggle() {
 const roleLines = ['FULL', 'STACK', 'DEVE-', 'LOPER']
 
 function Hero() {
+  
   return (
     <section className="hero-editorial">
       <motion.div variants={stagger} initial="hidden" animate="visible" className="hero-left">
@@ -97,13 +104,6 @@ function Hero() {
           <p>Crafting scalable, AI-powered web apps with TypeScript, React &amp; Node.js</p>
         </motion.div>
         <motion.div variants={fadeUp} className="hero-actions">
-          <a
-            className="btn btn-primary"
-            href={`mailto:${profile.email}`}
-            onClick={() => track('email_click', { source: 'hero' })}
-          >
-            <Mail size={16} aria-hidden="true" /> Contact me
-          </a>
           <a
             className="btn btn-ghost"
             href="#projects"
@@ -234,18 +234,18 @@ function Focus() {
 
 function Contact() {
   return (
-    <Card className="cell-contact" delay={0.2}>
+    <Card className="cell-contact" delay={0.2} id="contact">
       <h3 className="card-kicker">Contact</h3>
       <ul className="contact-list">
         <li>
           <Mail size={16} className="contact-icon" aria-hidden="true" />
-          <a href={`mailto:${profile.email}`} onClick={() => track('email_click', { source: 'contact_card' })}>
+          <a href={`mailto:${profile.email}`} onClick={() => track('email_click', { source: 'contact_card' })} target="_blank" rel="noreferrer">
             {profile.email}
           </a>
         </li>
         <li>
           <Phone size={16} className="contact-icon" aria-hidden="true" />
-          <a href={`tel:${profile.phone.replace(/-/g, '')}`} onClick={() => track('phone_click')}>
+          <a href={`tel:${profile.phone.replace(/-/g, '')}`} onClick={() => track('phone_click')} target="_blank" rel="noreferrer">
             {profile.phone}
           </a>
         </li>
@@ -413,6 +413,35 @@ function Projects() {
   )
 }
 
+ function Testimonials() {
+  return (
+    <section className="testimonials-section" id="testimonials">
+      <AnimatedTitle text="Testimonials" />
+      <div className="testimonials-grid">
+        {testimonials.map((testimonial, index) => (
+          <Card className="testimonial-card" key={index} delay={index * 0.1}>
+            <p className="testimonial-content">"{testimonial.content}"</p>
+            <div className="testimonial-author">
+              <h4 className="testimonial-name">{testimonial.name}</h4>
+              <p className="testimonial-role">{testimonial.role}</p>
+              {testimonial.linkedIn && (
+                <a
+                  href={testimonial.linkedIn}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="testimonial-linkedin"
+                >
+                  LinkedIn
+                </a>
+              )}
+            </div>
+          </Card>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 function EducationCard() {
   return (
     <Card className="cell-education" delay={0.1}>
@@ -454,7 +483,7 @@ function BigCTA() {
   }
 
   return (
-    <Card className="cell-cta" hover={false}>
+    <Card className="cell-cta" hover={false} delay={0.2}>
       <div className="cta-orb" />
       <div className="cta-grid">
         <form className="cta-form" onSubmit={handleSubmit}>
@@ -538,6 +567,7 @@ export default function App() {
         </div>
         <Marquee />
         <Projects />
+        <Testimonials />
         <div className="bento bento-bottom">
           <EducationCard />
           <Certifications />

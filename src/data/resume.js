@@ -13,7 +13,7 @@ export const profile = {
 
 export const stats = [
   { value: '2.5+', label: 'Years of Experience' },
-  { value: '150+', label: 'REST APIs Built' },
+  { value: '250+', label: 'REST APIs Built' },
   { value: '10+', label: 'Projects Delivered' },
   { value: '100%', label: 'On-time Deployment' },
 ]
@@ -74,14 +74,6 @@ export const experience = [
 
 export const projects = [
   {
-    title: 'Event Agent — AI Lead Generation',
-    tag: 'AI · Automation',
-    description:
-      'Autonomous agent that turns any event website into a lead list: Puppeteer scrapes the page, an LLM extracts exhibitor names, a search API enriches each company with website & LinkedIn, and live progress streams over Server-Sent Events into an auto-created Google Sheet.',
-    tech: ['Node.js', 'Puppeteer', 'LLM', 'Google Sheets API', 'React'],
-    featured: true,
-  },
-  {
     title: 'WhatsApp Order Bidding Microservice',
     tag: 'Microservices · Automation',
     description:
@@ -89,15 +81,7 @@ export const projects = [
     tech: ['NestJS', 'Cloud Tasks', 'Pub/Sub', 'PostgreSQL', 'WhatsApp API'],
     featured: true,
   },
-  {
-    title: 'AI Parenting Mobile App',
-    tag: 'AI · Mobile',
-    description:
-      'Claude AI (Anthropic) powered parenting advice tuned to child age and parent emotional state. AI nudge system with rate limiting, 50+ APIs, Prisma/PostgreSQL, JWT with token rotation, and a 20+ screen React Native app with offline storage.',
-    tech: ['Claude AI', 'React Native', 'Prisma', 'PostgreSQL'],
-    featured: true,
-  },
-  {
+   {
     title: 'E-Learning Platform',
     tag: 'Full Stack',
     description:
@@ -112,6 +96,30 @@ export const projects = [
       'Canvas editor with 10+ element types — shapes, rich text, images, QR codes — drag-and-drop, layering and formatting at a smooth 60fps, with 40% less re-render overhead.',
     tech: ['React', 'Canvas', 'GCP'],
     featured: false,
+  },
+  {
+    title: 'Event Agent — AI Lead Generation',
+    tag: 'AI · Automation',
+    description:
+      'Autonomous agent that turns any event website into a lead list: Puppeteer scrapes the page, an LLM extracts exhibitor names, a search API enriches each company with website & LinkedIn, and live progress streams over Server-Sent Events into an auto-created Google Sheet.',
+    tech: ['Node.js', 'Puppeteer', 'LLM', 'Google Sheets API', 'React'],
+    featured: true,
+  },
+  {
+    title: 'Reddit Freelance Lead Agent',
+    tag: 'Automation',
+    description:
+      'Built and deployed an automated lead-discovery agent that monitors five Reddit communities, filters posts using keyword rules, and scores opportunities against my skills and portfolio. Delivers relevant leads to Telegram for manual review, with persistent duplicate prevention and scheduled background processing.',
+    tech: ['TypeScript', 'Node.js', 'Reddit Devvit', 'Redis', 'Telegram Bot API'],
+    featured: true,
+  },
+  {
+    title: 'AI Parenting Mobile App',
+    tag: 'AI · Mobile',
+    description:
+      'Claude AI (Anthropic) powered parenting advice tuned to child age and parent emotional state. AI nudge system with rate limiting, 50+ APIs, Prisma/PostgreSQL, JWT with token rotation, and a 20+ screen React Native app with offline storage.',
+    tech: ['Claude AI', 'React Native', 'Prisma', 'PostgreSQL'],
+    featured: true,
   },
   {
     title: 'Project Management & Task Tracker',
